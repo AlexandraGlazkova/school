@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 @Service
 public class FacultyService {
     private final Map<Long, Faculty> faculties = new HashMap<>();
-    private long lastId;
+    private long lastId=0;
 
     public Faculty createFaculty(Faculty faculty) {
         faculty.setId(++lastId);

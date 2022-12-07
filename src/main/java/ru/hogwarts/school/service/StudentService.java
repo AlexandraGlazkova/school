@@ -15,7 +15,7 @@ public class StudentService {
     //3. Также создать счетчик идентификатора, который будет инкрементироваться при каждом добавлении нового объекта модели в HashMap.
     //4. В каждом сервисе реализовать CRUD-методы для создания, чтения, изменения и удаления сущностей.
     private final Map<Long, Student> students = new HashMap<>();
-    private long lastId;
+    private long lastId=0;
 
     public Student createStudent(Student student) {
         student.setId(++lastId);
