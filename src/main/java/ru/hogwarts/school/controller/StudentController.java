@@ -9,14 +9,6 @@ import java.util.Collection;
 @RestController
 @RequestMapping("student")
 public class StudentController {
-    //1. В каталоге **controller** cоздать два класса контроллеров для сервисов: StudentController и FacultyController.
-    //2. В них добавить RequestMapping (“student” для StudentController и “faculty” для FacultyController).
-    //3. В каждом контроллере реализовать эндпоинты для создания, получения, изменения и удаления сущностей,
-    // используя все правила формирования REST-запросов: GET-методы для получения данных, POST — для создания…
-    //  Добавить фильтрацию студентов по возрасту.
-    // Для этого в StudentController добавить эндпоинт, который принимает число (возраст — поле age)
-    // и возвращает список студентов, у которых совпал возраст с переданным числом.
-
     private final StudentService studentService;
 
     public StudentController(StudentService studentService) {
@@ -52,8 +44,9 @@ public class StudentController {
     }
 
     @DeleteMapping("{id}") // DELETE http://localhost:8080/student/5
-    public Student deleteStudent(@PathVariable Long id) {
-        return studentService.deleteStudent(id);
+    public ResponseEntity<Student> deleteStudent(@PathVariable Long id) {
+        studentService.deleteStudent(id);
+        return ResponseEntity.ok().build();
     }
 }
 

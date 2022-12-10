@@ -3,9 +3,8 @@ package ru.hogwarts.school.controller;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.hogwarts.school.model.Faculty;
-import ru.hogwarts.school.model.Student;
 import ru.hogwarts.school.service.FacultyService;
-import ru.hogwarts.school.service.StudentService;
+
 
 import java.util.Collection;
 @RestController
@@ -25,9 +24,6 @@ public class FacultyController {
         }
         return ResponseEntity.ok(faculty);
     }
-    //1. Добавить фильтрацию факультетов по цвету.
-    // Для этого в FacultyController добавить эндпоинт, который принимает строку (цвет — поле color)
-    // и возвращает список факультетов, у которых совпал цвет с переданной строкой.
 
     @GetMapping("/color/{color}") // GET http://localhost:8080/faculty/color/red
     public ResponseEntity<Collection<Faculty>> getFacultiesByColor(@PathVariable String color) {
@@ -49,7 +45,8 @@ public class FacultyController {
     }
 
     @DeleteMapping("{id}") // DELETE http://localhost:8080/faculty/2
-    public Faculty deleteFaculty(@PathVariable Long id) {
-        return facultyService.deleteFaculty(id);
+    public ResponseEntity<Faculty> deleteFaculty(@PathVariable Long id) {
+        facultyService.deleteFaculty(id);
+        return ResponseEntity.ok().build();
     }
 }
