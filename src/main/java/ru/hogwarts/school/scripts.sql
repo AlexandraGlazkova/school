@@ -9,3 +9,14 @@ SELECT * FROM "Students" WHERE name LIKE '%с%';
 SELECT * FROM "Students" WHERE age<id;
 -- 5. Получить всех студентов упорядоченных по возрасту.
 SELECT * FROM "Students" ORDER BY age;
+
+
+
+-- получить факультет студента
+SELECT f.id, s.name FROM students as s,faculty as f
+WHERE s.faculty_id = f.id
+  AND s.id = 4;
+-- получить студентов факультета
+SELECT f.id, s.name FROM students as s,faculty as f
+WHERE s.faculty_id = f.id
+  AND f.id = 3;
