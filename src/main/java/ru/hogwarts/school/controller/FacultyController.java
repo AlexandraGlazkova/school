@@ -25,8 +25,8 @@ public class FacultyController {
         return ResponseEntity.ok(faculty);
     }
 
-    @GetMapping("/color/{color}") // GET http://localhost:8080/faculty/color/red
-    public ResponseEntity<Collection<Faculty>> getFacultiesByColor(@PathVariable String color) {
+    @GetMapping(value = "/color", params = "color") // GET http://localhost:8080/faculty/color
+    public ResponseEntity<Collection<Faculty>> getFacultiesByColor(@RequestParam(required = false) String color) {
         return ResponseEntity.ok(facultyService.getFacultiesByColor(color));
     }
 
