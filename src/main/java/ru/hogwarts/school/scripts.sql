@@ -1,17 +1,15 @@
+
 -- 1. Получить всех студентов, возраст которых находится между 10 и 20
 -- (можно подставить любые числа, главное, чтобы нижняя граница была меньше верхней).
-SELECT * FROM "Students"WHERE age>19 AND age<24;
+SELECT * FROM students WHERE age BETWEEN 20 AND 23;
 -- 2. Получить всех студентов, но отобразить только список их имен.
-SELECT name FROM "Students";
+SELECT name FROM students;
 -- 3. Получить всех студентов, у которых в имени присутствует буква «О» (или любая другая).
-SELECT * FROM "Students" WHERE name LIKE '%с%';
+SELECT * FROM students WHERE name LIKE '%л%';
 -- 4. Получить всех студентов, у которых возраст меньше идентификатора.
-SELECT * FROM "Students" WHERE age<id;
+SELECT * FROM students WHERE age<id;
 -- 5. Получить всех студентов упорядоченных по возрасту.
-SELECT * FROM "Students" ORDER BY age;
-
-
-
+SELECT * FROM students ORDER BY age;
 -- получить факультет студента
 SELECT f.id, s.name FROM students as s,faculty as f
 WHERE s.faculty_id = f.id
