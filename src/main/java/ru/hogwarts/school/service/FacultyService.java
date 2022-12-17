@@ -24,7 +24,7 @@ public class FacultyService {
         return facultyRepository.save(faculty);
     }
 
-    public Faculty findFaculty(long id) {
+    public Faculty findFaculty(Long id) {
         return facultyRepository.findById(id).orElse(null);
     }
 
@@ -34,7 +34,7 @@ public class FacultyService {
         }
         return facultyRepository.save(faculty);
     }
-    public void deleteFaculty(long id) {
+    public void deleteFaculty(Long id) {
         facultyRepository.deleteById(id);
     }
 
@@ -46,7 +46,7 @@ public class FacultyService {
         return facultyRepository.findByNameIgnoreCaseOrColorIgnoreCase(searchStr, searchStr);
     }
 
-    public Collection<Student> getFacultyStudents(long id) {
+    public Collection<Student> getFacultyStudents(Long id) {
         Faculty faculty = findFaculty(id);
         if (faculty == null) {
             return null;

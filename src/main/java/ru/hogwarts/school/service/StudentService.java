@@ -4,9 +4,8 @@ import org.springframework.stereotype.Service;
 import ru.hogwarts.school.model.Faculty;
 import ru.hogwarts.school.model.Student;
 import ru.hogwarts.school.repositories.StudentRepository;
-
-
 import java.util.Collection;
+
 
 @Service
 public class StudentService {
@@ -21,7 +20,7 @@ public class StudentService {
         return studentRepository.save(student);
     }
 
-    public Student findStudent(long id) {
+    public Student findStudent(Long id) {
         return studentRepository.findById(id).orElse(null);
     }
 
@@ -32,7 +31,7 @@ public class StudentService {
         return studentRepository.save(student);
     }
 
-    public void deleteStudent(long id) {
+    public void deleteStudent(Long id) {
         studentRepository.deleteById(id);
     }
 
@@ -44,7 +43,7 @@ public class StudentService {
         return studentRepository.findByAgeBetween(min, max);
     }
 
-    public Faculty getStudentFaculty(long id) {
+    public Faculty getStudentFaculty(Long id) {
         Student student = findStudent(id);
         if (student == null) {
             return null;
