@@ -36,7 +36,7 @@ public class Student {
         return age;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

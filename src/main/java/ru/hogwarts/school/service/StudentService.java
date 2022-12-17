@@ -4,8 +4,9 @@ import org.springframework.stereotype.Service;
 import ru.hogwarts.school.model.Faculty;
 import ru.hogwarts.school.model.Student;
 import ru.hogwarts.school.repositories.StudentRepository;
-import java.util.Collection;
 
+
+import java.util.Collection;
 
 @Service
 public class StudentService {
