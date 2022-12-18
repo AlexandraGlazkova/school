@@ -3,10 +3,11 @@ package ru.hogwarts.school.model;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
+
 @Entity
 public class Faculty {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
     private String color;
@@ -36,7 +37,7 @@ public class Faculty {
         return color;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
