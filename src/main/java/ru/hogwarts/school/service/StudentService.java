@@ -1,10 +1,16 @@
 package ru.hogwarts.school.service;
 
 import org.springframework.stereotype.Service;
+import ru.hogwarts.school.exception.StudentNotFoundException;
 import ru.hogwarts.school.model.Faculty;
 import ru.hogwarts.school.model.Student;
+import ru.hogwarts.school.repositories.ListOfStudents;
 import ru.hogwarts.school.repositories.StudentRepository;
+
+
+import java.util.List;
 import java.util.Collection;
+
 
 
 @Service
@@ -20,8 +26,12 @@ public class StudentService {
         return studentRepository.save(student);
     }
 
-    public Student findStudent(Long id) {
-        return studentRepository.findById(id).orElse(null);
+    public Student findStudent(long id) {
+        Student student = studentRepository.findById(id).orElse(null);
+        if (student == null) {
+            throw new StudentNotFoundException(id);
+        }
+        return student;
     }
 
     public Student editStudent(Student student) {
@@ -31,7 +41,7 @@ public class StudentService {
         return studentRepository.save(student);
     }
 
-    public void deleteStudent(Long id) {
+    public void deleteStudent(long id) {
         studentRepository.deleteById(id);
     }
 
@@ -43,11 +53,23 @@ public class StudentService {
         return studentRepository.findByAgeBetween(min, max);
     }
 
-    public Faculty getStudentFaculty(Long id) {
+    public Faculty getStudentFaculty(long id) {
         Student student = findStudent(id);
         if (student == null) {
             return null;
         }
         return student.getFaculty();
+    }
+
+    public int getAllStudentsNumber() {
+        return studentRepository.getAllStudentsNumber();
+    }
+
+    public double getAverageAge() {
+        return studentRepository.getAverageAge();
+    }
+
+    public List<ListOfStudents> getLastStudentsById(int limit) {
+        return studentRepository.getLastStudentsById(limit);
     }
 }
