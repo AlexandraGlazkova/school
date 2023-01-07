@@ -18,6 +18,7 @@ public class StudentController {
 
     public StudentController(StudentService studentService, AvatarService avatarService) {
         this.studentService = studentService;
+
     }
 
     @GetMapping("{id}") // GET http://localhost:8080/student/5
