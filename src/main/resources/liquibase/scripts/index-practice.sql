@@ -1,5 +1,8 @@
 
--- Индекс для поиска по имени студента
+-- liquibase formatted sql
+
+-- changeset GlakovaA:1
 CREATE INDEX student_name_index ON student (name);
--- Индекс для поиска по названию и цвету факультета
+
+-- changeset GlakovaA:2
 CREATE INDEX faculty_name_color_index ON faculty (name, color);

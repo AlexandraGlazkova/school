@@ -17,7 +17,7 @@ import java.util.List;
 public class StudentService {
 
     private final StudentRepository studentRepository;
-    Logger logger = LoggerFactory.getLogger(StudentService.class);
+    private final Logger logger = LoggerFactory.getLogger(StudentService.class);
 
     public StudentService(StudentRepository studentRepository) {
         logger.debug("Calling constructor StudentService");
